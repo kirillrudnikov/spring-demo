@@ -1,0 +1,174 @@
+// scss-docs-start color-variables
+$blue:          #0d6efd !default;
+$indigo:        #6610f2 !default;
+$purple:        #6C4A9E !default;
+$pink:          #d63384 !default;
+$red:           #dc3545 !default;
+$orange:        #fd7e14 !default;
+$yellow:        #ffc107 !default;
+$green:         #198754; //#3dcc4b
+$teal:          #20c997 !default;
+$cyan:          #0dcaf0 !default;
+//custom colors
+$light-pink:    #DEB1CF; //DEB1CF
+$light-green:   #2bbd75; //6CC478
+$dark-purple:   #1A9AAB; //4C3272
+$contrast:      #1A9AAB; //964a9e
+
+// scss-docs-start theme-color-variables
+$primary:       #F4F4F4; //F4F4F4 F0F0F0
+$secondary:     #232227; //303030
+$tertiary:      #1A9AAB;
+$quaternary:    #DD99B2; //#59BFB3 //#09E196 //9A62A3
+$fivefold:      #6AE0D2;
+$success:       $green;
+$info:          $cyan;
+$warning:       $yellow;
+$danger:        $red;
+$light:         #FFFFFF;
+$dark:          #202020;
+
+$theme-colors: (
+        "primary":        $primary,
+        "secondary":      #303030, //#202020
+        "tertiary":       $tertiary, //#303030
+        "quaternary":     $quaternary,
+        "fivefold":       $fivefold,
+        "alternative":    $primary,
+        "purple":         #6C4A9E,
+        "dark-purple":    $dark-purple,
+        "pink":           #E6495E,
+        "light-pink":     $light-pink,
+        "light-green":    $light-green,
+        "contrast":       $contrast,
+        "success":        $success,
+        "info":           $info,
+        "warning":        $warning,
+        "danger":         $danger,
+        "light":          $light,
+        "dark":           $dark
+);
+
+// Transition settings
+$transition-base:             all .25s ease-in-out;
+$transition-fade:             opacity .5s linear;
+
+// Links
+//
+// Style anchor elements.
+
+$link-color:                              $secondary;
+$link-shade-percentage:                   75%;
+$link-decoration:                         null;
+$link-hover-color:                        $contrast;
+$link-hover-decoration:                   null;
+$nav-link-transition:                     color .25s ease-in-out, background-color .25s ease-in-out, border-color .25s ease-in-out;
+
+// Input
+//$input-border-color: $purple;
+//$input-focus-color: $purple;
+//$component-active-color:      $white !default;
+$component-active-bg:         $quaternary;
+
+$font-family-sans-serif: 'Source Sans Pro', sans-serif;
+
+//.footer__link:hover {
+//  color:
+//}
+
+//a {
+//  color: #F4F4F4;
+//}
+//
+//a:hover {
+//  color: #E6495E;
+//  text-decoration: underline;
+//}
+
+.body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.header__container {
+  @extend .container;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0 12px;
+  margin: 0 0 0 0;
+}
+
+.header__heading {
+  color: #F4F4F4;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.header__link {
+  color: #FFFFFF8C;
+  text-decoration: none;
+}
+
+.header__link:hover {
+  text-decoration: none;
+}
+
+.header__right {
+  margin-left: auto;
+}
+
+.footer__heading {
+  color: $primary;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.footer__link {
+  color: $primary;
+  text-decoration: none;
+}
+
+.footer__link:hover {
+  text-decoration: none;
+}
+
+.footer__social {
+  text-align: center;
+  padding: 0;
+}
+
+.footer__social-icon {
+  width: 32px;
+  margin-right: 16px;
+  height: auto;
+  display: inline-block;
+  fill: $primary;
+  transition: all 0.5s ease;
+}
+
+.footer__social-icon:hover {
+  fill: $quaternary;
+  transition: all 0.25s ease;
+}
+
+
+.text-hover-quaternary {
+  transition: color 0.5s ease;
+}
+
+.text-hover-quaternary:hover {
+  color: $quaternary;
+  transition: color 0.25s ease;
+}
+
+::selection {
+  background: $quaternary;
+}
+
+//@import "../static/assets/bootstrap/scss/functions";
+//@import "../static/assets/bootstrap/scss/variables";
+//@import "../assets/bootstrap/scss/mixins";
+@import "../assets/bootstrap/scss/bootstrap";

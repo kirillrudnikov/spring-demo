@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#DD99B2">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Society | Добро пожаловать!</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/custom.css}"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.png"/>
+</head>
+<body>
+
+<header th:replace="/fragments/header.html"></header>
+
+<main>
+
+    <div class="bg-light">
+        <section class="container text-center py-5">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-bold">Мы рады Вас видеть!</h1>
+                    <p class="lead text-muted">
+                        Добро пожаловать в социальную сеть Society.
+                        Для начала предлагаем Вам ознакомиться с поистине убийственным функционалом и начать как можно раньше пользоваться нашими услугами!
+                        Мы будем служить Вам и только Вам. Ваши данные будут в Ваших руках и только Вам решать, как ими распорядиться!
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="bg-tertiary">
+        <div class="container col-md-12 px-4 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-10 col-sm-8 col-lg-6">
+                    <img th:src="@{/assets/img/bootstrap-themes.png}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+                </div>
+                <div class="col-lg-6">
+                    <h1 class="display-5 fw-bold lh-1 mb-3">Society - это всё то же самое, только круче!</h1>
+                    <p class="lead">
+                        Мы подготовили для Вас приятный глазу, а главное, удобный интерфейс.
+                        Но не подумайте, что, то, что Вы видите сейчас - единственный вид.
+                        Специально для Вас мы изобрели механизм кастомизации цветов интерфейса сайта.
+                        Теперь каждый желающий будет способен создать свою цветовую схему, и, при желании, поделится ею с окружающими его людьми.
+                        Ну разве не круто ли?!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-fivefold">
+        <div class="container col-md-12 px-4 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-lg-6">
+                    <h1 class="display-5 fw-bold lh-1 mb-3">Society - это всё то же самое, только круче!</h1>
+                    <p class="lead">
+                        Мы подготовили для Вас приятный глазу, а главное, удобный интерфейс.
+                        Но не подумайте, что, то, что Вы видите сейчас - единственный вид.
+                        Специально для Вас мы изобрели механизм кастомизации цветов интерфейса сайта.
+                        Теперь каждый желающий будет способен создать свою цветовую схему, и, при желании, поделится ею с окружающими его людьми.
+                        Ну разве не круто ли?!
+                    </p>
+                </div>
+                <div class="col-10 col-sm-8 col-lg-6">
+                    <img th:src="@{/assets/img/bootstrap-themes.png}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-quaternary">
+        <div class="px-4 pt-5 text-center">
+            <h1 class="display-4 fw-bold">Society - это всё то же самое, только круче!</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">
+                    Мы подготовили для Вас приятный глазу, а главное, удобный интерфейс.
+                    Но не подумайте, что, то, что Вы видите сейчас - единственный вид.
+                </p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                    <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Кнопочка раз</button>
+                    <button type="button" class="btn btn-secondary btn-lg px-4">Кнопочка два</button>
+                </div>
+            </div>
+            <div class="overflow-hidden" style="max-height: 30vh;">
+                <div class="container px-5">
+                    <img th:src="@{/assets/img/bootstrap-docs.png}" class="img-fluid rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-secondary">
+        <div class="container-md py-5">
+            <div class="row p-5 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 shadow-lg">
+                <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+                    <h1 class="display-4 fw-bold lh-1 text-primary">Society - это всё то же самое, только круче!</h1>
+                    <p class="lead text-primary">
+                        Специально для Вас мы изобрели механизм кастомизации цветов интерфейса сайта.
+                        Теперь каждый желающий будет способен создать свою цветовую схему, и, при желании, поделится ею с окружающими его людьми.
+                        Ну разве не круто ли?!
+                    </p>
+                </div>
+                <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+                    <img class="rounded-lg-3" th:src="@{/assets/img/bootstrap-docs.png}" alt="" width="720">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-light">
+        <div class="container col-md-12 px-4 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold lh-1 mb-3">Готовы отправиться в путешествие?</h1>
+                    <p class="col-lg-10 fs-4">
+                        Специально для Вас мы изобрели механизм кастомизации цветов интерфейса сайта.
+                        Теперь каждый желающий будет способен создать свою цветовую схему, и, при желании, поделится ею с окружающими его людьми.
+                        Ну разве не круто ли?!
+                    </p>
+                </div>
+                <div class="col-10 col-sm-8 col-lg-4">
+                    <form class="p-4 p-md-5 border rounded-3 shadow bg-primary needs-validation" th:action="@{/registration}" th:object="${form}" th:method="POST" novalidate>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="emailInput" placeholder="name@example.com" th:field="*{email}" required>
+                            <label for="emailInput">Email</label>
+                            <div class="invalid-feedback">Пожалуйста, заполните это поле</div>
+                        </div>
+                        <button class="w-100 btn btn-lg btn-success" type="submit">Создать аккаунт</button>
+
+                        <hr class="my-4">
+
+                        <small class="text-muted">Нажимая «Создать аккаунт», вы принимаете пользовательское соглашение и политику конфиденциальности.</small>
+                    </form>
+                </div>
+            </div>
+
+            <div class="position-fixed bottom-0 end-0 p-3">
+                <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header py-3">
+                        <strong class="me-auto">Регистрация</strong>
+                        <small>11 мин назад</small>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+                    </div>
+                    <div class="toast-body p-3">
+                        На Вашу почту было отправлено письмо с подтверждением!
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+<footer th:replace="/fragments/footer.html"></footer>
+
+<div th:replace="/fragments/footer-thanks.html"></div>
+
+<script th:src="@{/assets/js/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/assets/js/popper.min.js}"></script>
+<script th:src="@{/assets/js/bootstrap.min.js}"></script>
+
+<!-- JavaScript for disabling form submissions if there are invalid fields -->
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>
+
+<!--<script>-->
+<!--    document.addEventListener("DOMContentLoaded", function(){-->
+<!--        var btn = document.getElementById("liveToastBtn");-->
+<!--        var element = document.getElementById("liveToast");-->
+
+<!--        // Create toast instance-->
+<!--        var myToast = new bootstrap.Toast(element);-->
+
+<!--        btn.addEventListener("click", function(){-->
+<!--            myToast.show();-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+<script>
+    $(document).ready(function(){
+        $("#liveToastBtn").click(function(){
+            $("#liveToast").toast("show");
+        });
+    });
+</script>
+<!--<script th:src="@{/assets/js/modal.js}"></script>-->
+
+</body>
+</html>

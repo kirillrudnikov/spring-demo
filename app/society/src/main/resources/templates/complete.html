@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#DD99B2">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Society | Завершение регистрации</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/custom.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/photo.css}"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.png"/>
+    <script th:src="@{/assets/js/jquery-3.6.0.min.js}"></script>
+    <script th:src="@{/assets/js/jquery.validate.js}"></script>
+    <script>
+        $.validator.setDefaults({});
+
+        $().ready(function () {
+
+            // validate signup form on keyup and submit
+            $("#signupForm").validate({
+                rules: {
+                    firstname: "required",
+                    lastname: "required",
+                    username: {
+                        required: true,
+                        minlength: 2
+                    },
+                    password: {
+                        required: true,
+                        minlength: 6
+                    },
+                    repeatPassword: {
+                        required: true,
+                        minlength: 6,
+                        equalTo: "#password"
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    }
+                },
+                messages: {
+                    firstname: "Пожалуйста, введите Ваше имя",
+                    lastname: "Пожалуйста, введите Вашу фамилию",
+                    username: {
+                        required: "Пожалуйста, введите желаемое имя пользователя",
+                        minlength: "Имя пользователя должно состоять из минимум двух символов"
+                    },
+                    password: {
+                        required: "Пожалуйста, введите желаемый пароль",
+                        minlength: "Пароль должен состоять из минимум 6 символов"
+                    },
+                    repeatPassword: {
+                        required: "Пожалуйста, заполните это поле",
+                        minlength: "Пароль должен состоять из минимум 6 символов",
+                        equalTo: "Пожалуйста, повторите пароль"
+                    },
+                    email: "Пожалуйста, введите верный адрес электронной почты",
+                }
+            });
+
+            // propose username by combining first- and lastname
+            $("#username").focus(function () {
+                var firstname = $("#firstname").val();
+                var lastname = $("#lastname").val();
+                if (firstname && lastname && !this.value) {
+                    this.value = (firstname + "." + lastname).toLowerCase();
+                }
+            });
+        });
+    </script>
+</head>
+
+<body class="bg-light">
+
+<div class="container-sm py-5" style="max-width: 960px">
+    <main>
+        <div class="py-5 text-center">
+            <h2>Checkout form</h2>
+            <p class="lead">
+                Мы получили подтверждение Вашей почты, но нам нужно узнать о Вас подробнее.
+                Мы обещаем, это последний шаг, который Вам необходимо проделать!
+            </p>
+        </div>
+
+        <div class="row g-5">
+            <div class="col-md-5 col-lg-4 order-md-last">
+                <h4 class="text-center fw-bold mb-3">Фото профиля</h4>
+                <div class="row g-3">
+                    <div class="profile-pic-wrapper">
+                        <div class="pic-holder">
+                            <!-- uploaded pic shown here -->
+                            <img id="profilePic" class="pic" th:src="@{/assets/img/default_profile.png}">
+
+                            <input class="uploadProfileInput" type="file" name="profile_pic" id="newProfilePhoto"
+                                   accept="image/*"/>
+                            <label for="newProfilePhoto" class="upload-file-block">
+                                <div class="text-center">
+                                    <div class="mb-2">
+                                        <i class="fa fa-camera fa-2x"></i>
+                                    </div>
+                                    <div class="text-uppercase">
+                                        Обновить <br/> Фото профиля
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <span class="text-muted text-center m-0">Чтобы загрузить фото, нажмите по иконке выше</span>
+
+                </div>
+            </div>
+
+            <div class="col-md-7 col-lg-8">
+                <h4 class="fw-bold mb-3">Завершение регистрации</h4>
+                <form class="needs-validation" id="signupForm" th:action="@{/registration/complete}" th:object="${form}"
+                      th:method="POST">
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="firstname" class="form-label">Имя</label>
+                            <input type="text" class="form-control" id="firstname" placeholder=""
+                                   th:field="*{firstname}">
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="lastname" class="form-label">Фамилия</label>
+                            <input type="text" class="form-control" id="lastname" placeholder="" th:field="*{lastname}">
+                        </div>
+
+                        <div class="col-12">
+                            <label for="username" class="form-label">Имя пользователя</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text">@</span>
+                                <input type="text" class="form-control" id="username" placeholder="ivan.ivanov"
+                                       th:field="*{username}">
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="phoneNumber" class="form-label">Моб. телефон
+                                <span class="text-muted">(Выборочно)</span>
+                            </label>
+                            <input type="tel" class="form-control" id="phoneNumber" placeholder="+7 (800) 555 35 35"
+                                   th:field="*{phoneNumber}">
+                        </div>
+
+                        <div class="col-12">
+                            <label for="password" class="form-label">Пароль</label>
+                            <input type="password" class="form-control" id="password" placeholder="123456"
+                                   th:field="*{password}">
+                        </div>
+
+                        <div class="col-12">
+                            <label for="repeatPassword" class="form-label">Повторите пароль</label>
+                            <input type="password" class="form-control" id="repeatPassword" placeholder="123456"
+                                   th:field="*{repeatPassword}">
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="password-control">
+                                <label class="form-check-label" for="password-control">
+                                    Показать пароль
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <button class="w-100 btn btn-outline-success btn-lg" type="submit">Завершить регистрацию</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script th:src="@{/assets/js/society.js}"></script>
+
+<script>
+    $(document).on("change", ".uploadProfileInput", function () {
+        var triggerInput = this;
+        var currentImg = $(this).closest(".pic-holder").find(".pic").attr("src");
+        var holder = $(this).closest(".pic-holder");
+        var wrapper = $(this).closest(".profile-pic-wrapper");
+        $(wrapper).find('[role="alert"]').remove();
+        triggerInput.blur();
+        var files = !!this.files ? this.files : [];
+        if (!files.length || !window.FileReader) {
+            return;
+        }
+        if (/^image/.test(files[0].type)) {
+            // only image file
+            var reader = new FileReader(); // instance of the FileReader
+            reader.readAsDataURL(files[0]); // read the local file
+
+            reader.onloadend = function () {
+                $(holder).addClass("uploadInProgress");
+                $(holder).find(".pic").attr("src", this.result);
+                $(holder).append(
+                    '<div class="upload-loader"><div class="spinner-border text-primary" role="status"><span class="sr-only">Загрузка...</span></div></div>'
+                );
+
+                // Dummy timeout; call API or AJAX below
+                setTimeout(() => {
+                    $(holder).removeClass("uploadInProgress");
+                    $(holder).find(".upload-loader").remove();
+                    // If upload successful
+                    if (Math.random() < 0.9) {
+                        $(wrapper).append(
+                            '<div class="snackbar show" role="alert"><i class="fa fa-check-circle text-success"></i>Фото профиля успешно обновлено!</div>'
+                        );
+
+                        // Clear input after upload
+                        $(triggerInput).val("");
+
+                        setTimeout(() => {
+                            $(wrapper).find('[role="alert"]').remove();
+                        }, 3000);
+                    } else {
+                        $(holder).find(".pic").attr("src", currentImg);
+                        $(wrapper).append(
+                            '<div class="snackbar show" role="alert"><i class="fa fa-times-circle text-danger"></i>Произошла ошибка при загрузке! Пожалуйста, попробуйте ещё раз.</div>'
+                        );
+
+                        // Clear input after upload
+                        $(triggerInput).val("");
+                        setTimeout(() => {
+                            $(wrapper).find('[role="alert"]').remove();
+                        }, 3000);
+                    }
+                }, 1500);
+            };
+        } else {
+            $(wrapper).append(
+                '<div class="alert alert-danger d-inline-block p-2 small" role="alert">Please choose the valid image.</div>'
+            );
+            setTimeout(() => {
+                $(wrapper).find('[role="alert"]').remove();
+            }, 3000);
+        }
+    });
+</script>
+
+</body>
+
+</html>

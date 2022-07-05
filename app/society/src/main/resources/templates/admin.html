@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#DD99B2">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Society | Панель управления</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/custom.css}"/>
+</head>
+<body class="bg-primary">
+
+<header th:replace="/fragments/header.html"></header>
+
+<main>
+    <div class="container-md my-md-4">
+        <div class="bg-primary">
+            <div class="px-3 py-3">
+                <div class="ps-lg-4">
+                    <h1 class="text-secondary">Панель управления</h1>
+                    <p class="text-secondary">
+                        Собственно удобная панелька для проверки back-end составляющей сайта.
+                    </p>
+                </div>
+
+                <hr class="text-secondary">
+
+                <div class="container-md">
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="mx-4 mb-4">
+                                <form th:action="@{/admin/user/add}" th:object="${user}" th:method="POST">
+                                    <h3 class="text-secondary">Создать пользователя</h3>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">@</span>
+                                        <input type="text" class="form-control" placeholder="Имя пользователя"
+                                               th:field="*{username}">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Пароль"
+                                               th:field="*{password}">
+                                    </div>
+                                    <button type="submit" class="btn btn-light-green btn-lg">Создать</button>
+                                </form>
+                            </div>
+                            <div class="mx-4 mb-4">
+                                <form th:action="@{/admin/user/update}" th:object="${updateUserForm}" th:method="POST">
+                                    <h3 class="text-secondary">Обновить пользователя</h3>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">@</span>
+                                        <input type="text" class="form-control" placeholder="Имя пользователя"
+                                               th:field="*{oldUsername}">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Пароль"
+                                               th:field="*{oldPassword}">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">@</span>
+                                        <input type="text" class="form-control" placeholder="Новое имя пользователя"
+                                               th:field="*{newUsername}">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Новый пароль"
+                                               th:field="*{newPassword}">
+                                    </div>
+                                    <button type="submit" class="btn btn-warning btn-lg">Обновить</button>
+                                </form>
+                            </div>
+                            <div class="mx-4 mb-4">
+                                <form th:action="@{/admin/user/delete}" th:object="${deleteUserForm}" th:method="POST">
+                                    <h3 class="text-secondary">Удалить пользователя</h3>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">@</span>
+                                        <input type="text" class="form-control" placeholder="Имя пользователя"
+                                               th:field="*{username}">
+                                    </div>
+                                    <button type="submit" class="btn btn-danger btn-lg">Удалить</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="mx-4 mb-4">
+                                <h3 class="text-secondary">Список пользователей</h3>
+                                <table class="table text-secondary">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Username</th>
+                                        <th scope="col">Password</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="user : ${users}">
+                                        <th scope="row" th:text="${user.id}"></th>
+                                        <td th:text="${user.username}"></td>
+                                        <td th:text="${user.password}"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="/fragments/footer.html"></footer>
+
+<div th:replace="/fragments/footer-thanks.html"></div>
+
+<script th:src="@{/assets/js/popper.min.js}"></script>
+<script th:src="@{/assets/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

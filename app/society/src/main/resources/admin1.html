@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Society | Панель Управления</title>
+    <link rel="stylesheet" th:href="@{/assets/custom.css}"/>
+</head>
+<body class="bg-primary">
+
+<header class="navbar navbar-expand-md navbar-dark bg-purple">
+    <nav class="container-md" aria-label="Main navigation">
+        <a class="navbar-brand" href="/" aria-label="Bootstrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="d-block my-1" viewBox="0 0 118 94"
+                 role="img"><title>Bootstrap</title>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"
+                      fill="currentColor"></path>
+            </svg>
+        </a>
+        <a class="header__heading p-2 text-hover-pink" href="/">
+            Society
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#bdNavbar"
+                aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor"
+                 viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                      d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path>
+            </svg>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bdNavbar">
+            <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav align-baseline pt-2 py-md-0">
+                <li class="nav-item col-6 col-md-auto">
+                    <a class="nav-link p-2" href="/">
+                        Домашняя
+                    </a>
+                </li>
+                <li class="nav-item col-6 col-md-auto">
+                    <a class="nav-link p-2 active" aria-current="true" href="#">
+                        Панель управления
+                    </a>
+                </li>
+                <li class="nav-item col-6 col-md-auto">
+                    <a class="nav-link p-2" href="#" target="_blank" rel="noopener">
+                        Темы
+                    </a>
+                </li>
+                <li class="nav-item col-6 col-md-auto">
+                    <a class="nav-link p-2" href="https://blog.getbootstrap.com/"
+                       rel="noopener">О нас
+                    </a>
+                </li>
+            </ul>
+
+            <hr class="d-md-none text-white-50">
+
+            <div class="header__right">
+                <a class="btn btn-dark-purple header__link d-lg-inline-block my-2 my-md-0 ms-md-3" href="#">
+                    Вход
+                </a>
+                <a class="btn btn-dark-purple d-lg-inline-block my-2 my-md-0 ms-md-3" href="#">
+                    Регистрация
+                </a>
+            </div>
+
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="container-md my-md-4">
+        <div class="bg-tertiary rounded">
+            <div class="px-3 py-3">
+                <div class="bd-intro ps-lg-4">
+                    <h1 class="text-secondary text-hover-pink">Панель управления</h1>
+                    <p class="text-secondary text-hover-pink">Собственно удобная панелька для проверки back-end
+                        составляющей сайта.</p>
+                </div>
+
+                <hr class="text-secondary">
+
+                <div class="container-md">
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="mx-4 mb-4">
+                                <form th:action="@{/admin/user/add}" th:object="${user}" th:method="POST">
+                                    <h3 class="text-secondary text-hover-pink">Создать пользователя</h3>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">@</span>
+                                        <input type="text" class="form-control" placeholder="Имя пользователя"
+                                               th:field="*{username}">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Пароль"
+                                               th:field="*{password}">
+                                    </div>
+                                    <button type="submit" class="btn btn-light-green btn-lg">Создать</button>
+                                </form>
+                            </div>
+                            <div class="mx-4 mb-4">
+                                <form th:action="@{/admin/user/update}" th:object="${updateUserForm}" th:method="POST">
+                                    <h3 class="text-secondary text-hover-pink">Обновить пользователя</h3>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">@</span>
+                                        <input type="text" class="form-control" placeholder="Имя пользователя"
+                                               th:field="*{oldUsername}">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Пароль"
+                                               th:field="*{oldPassword}">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">@</span>
+                                        <input type="text" class="form-control" placeholder="Новое имя пользователя"
+                                               th:field="*{newUsername}">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Новый пароль"
+                                               th:field="*{newPassword}">
+                                    </div>
+                                    <button type="submit" class="btn btn-warning btn-lg">Обновить</button>
+                                </form>
+                            </div>
+                            <div class="mx-4 mb-4">
+                                <form th:action="@{/admin/user/delete}" th:object="${deleteUserForm}" th:method="POST">
+                                    <h3 class="text-secondary text-hover-pink">Удалить пользователя</h3>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">@</span>
+                                        <input type="text" class="form-control" placeholder="Имя пользователя"
+                                               th:field="*{username}">
+                                    </div>
+                                    <button type="submit" class="btn btn-danger btn-lg">Удалить</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="mx-4 mb-4">
+                                <h3 class="text-secondary text-hover-pink">Список пользователей</h3>
+                                <table class="table text-secondary">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Username</th>
+                                        <th scope="col">Password</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="user : ${users}">
+                                        <th scope="row" th:text="${user.id}"></th>
+                                        <td th:text="${user.username}"></td>
+                                        <td th:text="${user.password}"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="py-5 bg-purple">
+    <div class="container-md my-md-5">
+        <div class="row">
+            <div class="col-md-2">
+                <h4 class="footer__heading text-hover-pink">Почему мы?</h4>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2">
+                        <a href="#" class="footer__link text-hover-pink p-0">
+                            Наши возможности
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="#" class="footer__link text-hover-pink p-0">
+                            Наши гарантии
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="#" class="footer__link text-hover-pink p-0">
+                            Подробнее о нас
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-2">
+                <h4 class="footer__heading text-hover-pink">Поддержка</h4>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2">
+                        <a href="#" class="footer__link text-hover-pink p-0">
+                            Техническая помощь
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="#" class="footer__link text-hover-pink p-0">
+                            Контакты
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="#" class="footer__link text-hover-pink p-0">
+                            FAQs
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="#" class="footer__link text-hover-pink p-0">
+                            Статус API
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 offset-2">
+                <form>
+                    <h4 class="footer__heading text-hover-pink">Подпишитесь на нашу рассылку</h4>
+                    <p class="text-alternative">
+                        Мы постараемся приятно удивлять Вас чем-то новым время от времени. Оставайтесь с нами!
+                    </p>
+                    <div class="d-flex w-100 gap-2">
+                        <label for="newsletter1" class="visually-hidden">Email адрес</label>
+                        <input id="newsletter1" type="text" class="form-control" placeholder="Email">
+                        <button class="btn btn-dark-purple" type="button">Подписаться</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between py-4 my-4 border-top">
+            <p class="text-alternative">© 2022 Society, Inc. Все права защищены.</p>
+            <ul class="list-unstyled d-flex">
+                <li class="footer__social-icon">
+                    <a href="#">
+                        <svg viewBox="0 0 48 48">
+                            <path d="M24,0A24.19,24.19,0,0,0,0,24.38,24.28,24.28,0,0,0,18.18,48,3.66,3.66,0,0,1,18,46.82V42.65H15a4.17,4.17,0,0,1-3.81-2c-.78-1.48-.92-3.75-2.87-5.13-.57-.46-.13-1,.53-.92A6.34,6.34,0,0,1,12,37a3.07,3.07,0,0,0,3.19,1.57,22.06,22.06,0,0,0,3.39-.25,7.59,7.59,0,0,1,3.17-4C13.8,33.53,10,29.49,10,24a10.07,10.07,0,0,1,2.67-6.57c-.55-1.91-1.25-5.8.21-7.28a8.33,8.33,0,0,1,6.29,3,17.82,17.82,0,0,1,5.83-1,17.62,17.62,0,0,1,5.84,1,8.32,8.32,0,0,1,6.3-3c1.46,1.48.76,5.39.2,7.3A10,10,0,0,1,40,24c0,5.48-3.81,9.51-11.79,10.35,2.2,1.17,3.8,4.44,3.8,6.9v5.56a4.17,4.17,0,0,1-.07.54A24.34,24.34,0,0,0,48,24.38,24.19,24.19,0,0,0,24,0Z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li class="footer__social-icon">
+                    <a href="#">
+                        <svg viewBox="0 0 48 48">
+                            <path d="M24,0A24,24,0,1,0,48,24,24,24,0,0,0,24,0ZM35.94,13.2l-4.5,23A1.39,1.39,0,0,1,30,37.2a1.62,1.62,0,0,1-1.05-.33l-9.73-8.08h0L31,17.88a.6.6,0,0,0-.72-1L14.41,26.39h0L8.29,24.76S7.2,24.45,7.2,23.55s1.12-1.11,1.12-1.11L33.9,12.28A5,5,0,0,1,35.25,12c.35,0,.75.15.75.6A3.51,3.51,0,0,1,35.94,13.2Z"/>
+                        </svg>
+                        </svg>
+                    </a>
+                </li>
+                <li class="footer__social-icon">
+                    <a href="#">
+                        <svg viewBox="0 0 48 48">
+                            <polygon points="21.57 28 29.57 24 21.57 20 21.57 28"/>
+                            <path d="M24,0A24,24,0,1,0,48,24,24,24,0,0,0,24,0ZM39.33,31.37A3.86,3.86,0,0,1,36.5,34c-2.49.64-12.5.64-12.5.64s-10,0-12.5-.64a3.86,3.86,0,0,1-2.83-2.66A37.88,37.88,0,0,1,8,24a37.88,37.88,0,0,1,.67-7.35A3.92,3.92,0,0,1,11.5,14C14,13.33,24,13.33,24,13.33s10,0,12.5.64a3.92,3.92,0,0,1,2.83,2.7A37.88,37.88,0,0,1,40,24,37.88,37.88,0,0,1,39.33,31.37Z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li class="footer__social-icon">
+                    <a href="#">
+                        <svg viewBox="0 0 48 48">
+                            <ellipse cx="19.97" cy="25.73" rx="2.3" ry="2.88"/>
+                            <ellipse cx="28.03" cy="25.73" rx="2.3" ry="2.88"/>
+                            <path d="M24,0A24,24,0,1,0,48,24,24,24,0,0,0,24,0Zm5.89,34.37L28.83,33a13,13,0,0,0,5.64-3.77c-2.12,1.59-5.31,2.89-10.47,2.89s-8.35-1.3-10.47-2.89A13,13,0,0,0,19.17,33l-1.06,1.42A12.39,12.39,0,0,1,9.6,30.48c.57-9.44,3.93-14.27,3.93-14.27a13.9,13.9,0,0,1,6.54-2.58l.31.63a13,13,0,0,0-6.2,3.26c2.64-1.34,5.26-2.74,9.82-2.74s7.18,1.4,9.82,2.74a12.68,12.68,0,0,0-6.2-3.26l.31-.63a13.86,13.86,0,0,1,6.54,2.58S37.83,21,38.4,30.48A12.39,12.39,0,0,1,29.89,34.37Z"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</footer>
+<div class="text-center text-alternative bg-dark-purple px-3 py-3">
+    <p class="mb-0">
+        Данный сайт был разработан при помощи
+        <a href="https://spring.io/" class="footer__link text-hover-pink">Spring Boot</a>
+        и
+        <a href="https://getbootstrap.com/" class="footer__link text-hover-pink">Bootstrap</a>
+        с любовью для Вас!
+    </p>
+</div>
+
+</body>
+</html>
